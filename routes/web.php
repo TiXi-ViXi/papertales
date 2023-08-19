@@ -48,4 +48,6 @@ Route::post('storebkash/class', [App\Http\Controllers\manage::class, 'storebkash
 Route::get('/cartmanageadmin', [App\Http\Controllers\manage::class, 'cartmanageadmin'])->name('class.cartmanageadmin');
 Route::get('/book/add/{id}', [App\Http\Controllers\manage::class, 'avadds'])->name('class.avadd');
 Route::get('/book/delete/{id}', [App\Http\Controllers\manage::class, 'avdelete'])->name('class.avdelete');
+Route::post('/class/book/comment/{id}', [App\Http\Controllers\manage::class, 'storecomment'])->name('store.comment');
+Route::get('/class/book/comment/view/{id}', [App\Http\Controllers\manage::class, 'commentview'])->name('comment.view');
 require __DIR__.'/auth.php';

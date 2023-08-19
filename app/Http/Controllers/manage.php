@@ -171,4 +171,16 @@ public function avadds($id){
     DB::table('book')->where('id', $cartItem->id)->increment('availability');
     return redirect()->back();
 }
+public function storecomment(Request $request, $id){
+    $data=array([
+        'book id' => $id,
+        'user' => $request->name,
+        'comment' => $request->comment,
+    ]);
+    DB::table('review')->insert($data);
+}
+public function commentview($id) {
+    $result = DB::table('review')->where('book id', $id)->get();
+    return view('comment', compact('result'));
+}
 }
